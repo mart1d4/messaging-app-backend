@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConnection');
 const path = require('path');
 const corsOptions = require('./config/corsOptions');
+const jwt = require('jsonwebtoken');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
