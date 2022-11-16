@@ -9,7 +9,7 @@
     },
     "author": "mart1d4",
     "engines": {
-        "node": "19.0.1"
+        "node": "16.x"
     },
     "dependencies": {
         "bcrypt": "^5.0.1",
