@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 router.get('^/$|/index(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
+    res.render('index', {
+        api: {
+            version: '1.0.0',
+        },
+    });
 });
 
 module.exports = router;
