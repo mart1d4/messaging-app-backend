@@ -36,11 +36,11 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 // Routes
-app.use('/', require('./routes/root'));
-app.use('/auth', require('./routes/auth'));
+app.use('/v1', require('./routes/root'));
+app.use('/v1/auth', require('./routes/auth'));
 
 app.use(verifyJWT);
-app.use('/users', require('./routes/api/users'));
+app.use('/v1/users', require('./routes/api/users'));
 
 app.all('*', (req, res) => {
     res.status(404);

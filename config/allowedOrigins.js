@@ -1,5 +1,5 @@
 const allowedOrigins = [
-    'https://www.mart1d4.com',
+    'https://www.unthrust.com',
     'http://localhost:5000',
     'http://localhost:3000',
 ];
