@@ -6,7 +6,7 @@ async function getRandomAvatar() {
         `https://api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_API_KEY}&tag=&rating=g`
     );
     const json = await response.json();
-    const avatarUrl = json.data.images.original_mp4.mp4;
+    const avatarUrl = json.data.images.downsized.url;
     return avatarUrl;
 }
 
@@ -29,7 +29,7 @@ const userSchema = new Schema(
         },
         avatar: {
             type: String,
-            default: 'https://i.imgur.com/82lC0NF.jpeg',
+            default: '',
         },
         description: {
             type: String,
@@ -45,10 +45,22 @@ const userSchema = new Schema(
                 ref: 'User',
             },
         ],
-        friends: [
+        friendRequestsSent: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User',
+            },
+        ],
+        friends: [
+            {
+                friend: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'User',
+                },
+                addedAt: {
+                    type: Date,
+                    default: Date.now,
+                },
             },
         ],
         status: {
@@ -59,6 +71,23 @@ const userSchema = new Schema(
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Conversation',
+                default: [],
+            },
+        ],
+        notifications: [
+            {
+                content: {
+                    type: String,
+                    default: '',
+                },
+                sender: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'User',
+                },
+                sentAt: {
+                    type: Date,
+                    default: Date.now,
+                },
             },
         ],
         refreshToken: String,

@@ -12,4 +12,10 @@ router
 
 router.post('/:id/add', usersController.addFriend);
 
+router.post('/:id/accept', usersController.acceptFriend);
+
+router.get('/:id/friends', usersController.getFriends);
+
+router.get('/:id/notifications', usersController.getNotifications);
+
 module.exports = router;

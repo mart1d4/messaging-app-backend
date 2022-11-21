@@ -116,6 +116,7 @@ const handleRefreshToken = async (req, res) => {
                     role: foundUser.role,
                     friendRequests: foundUser.friendRequests,
                     friends: foundUser.friends,
+                    id: foundUser._id,
                 },
             });
         }
