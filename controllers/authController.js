@@ -54,7 +54,7 @@ const handleLogin = async (req, res) => {
         );
 
         foundUser.refreshToken = refreshToken;
-        const result = await foundUser.save();
+        await foundUser.save();
 
         res.cookie('jwt', refreshToken, {
             httpOnly: true,
@@ -74,6 +74,7 @@ const handleLogin = async (req, res) => {
                 role: foundUser.role,
                 friendRequests: foundUser.friendRequests,
                 friends: foundUser.friends,
+                id: foundUser._id,
             },
         });
     } else {

@@ -55,6 +55,12 @@ const userSchema = new Schema(
             type: String,
             default: 'offline',
         },
+        conversations: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Conversation',
+            },
+        ],
         refreshToken: String,
     },
     {

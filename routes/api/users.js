@@ -10,4 +10,6 @@ router
     .put(usersController.updateUser)
     .delete(usersController.deleteUser);
 
+router.post('/:id/add', usersController.addFriend);
+
 module.exports = router;
